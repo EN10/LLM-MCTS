@@ -14,9 +14,9 @@ def groq(query):
     response = requests.post(GROQ_API_URL, headers=HEADERS, json=data)
     return response.json()["choices"][0]["message"]["content"]
 
-# Load and convert dataset to DataFrame
+# Load and convert dataset [:10] rows to DataFrame
 df = load_dataset("lighteval/MATH", 'all', split='test[:10]').to_pandas()
-# Extract question and answer
+# Extract question [5] and answer
 row = df.iloc[5]
 
 print(row['problem'])
