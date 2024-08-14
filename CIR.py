@@ -1,5 +1,3 @@
-# Critique, Improve, Rate
-
 import requests
 import os
 import re
@@ -11,6 +9,8 @@ def groq(query):
     data = {"messages": [{"role": "user", "content": query}], "model": "llama-3.1-8b-instant"}
     response = requests.post(url, headers=headers, json=data)
     return response.json()["choices"][0]["message"]["content"]
+
+# Critique, Improve, Rate
 
 def critique(question, draft_ans):
     prompt = (
